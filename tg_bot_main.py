@@ -41,7 +41,7 @@ async def tarifs(message: types.Message):
 
 @dp.message_handler(Text(equals="📙 Кейсы"))
 async def tarifs(message: types.Message):
-    report_file = open(f"training_sql.pdf", "rb")
+    report_file = open(f"Cases_sql.pdf", "rb")
     await bot.send_document(
         message.from_user.id,
         report_file,
