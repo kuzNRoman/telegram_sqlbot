@@ -11,10 +11,12 @@ import sys
 bot = Bot(token=token)
 dp = Dispatcher(bot)
 
+imp_info_button = types.KeyboardButton("🤓 Полезная информация")
 cheatsheet_button = types.KeyboardButton("📗 Шпаргалка")
 cases_button = types.KeyboardButton("📙 Кейсы")
 # info_button = types.KeyboardButton("✔️ Прислать свои кейсы")
 keyboard_main = types.ReplyKeyboardMarkup(resize_keyboard=True)
+keyboard_main.add(imp_info_button)
 keyboard_main.add(cheatsheet_button)
 keyboard_main.add(cases_button)
 
@@ -23,6 +25,15 @@ keyboard_main.add(cases_button)
 async def start(message: types.Message):
     await message.answer(
         "Добрый день!\nДанный бот призван бесплатно распространять полезную информацию и уроки для начинающих и продвинутых пользователей SQL.\n\nВы можете скачать <b>PDF файл с полным описанием функционала баз данных SQL</b> - детально разобраны функции и их применение в MSSQL, MySQL и Postgres (учитывая особенности каждой базы), нажав на <b>кнопку 📗 Шпаргалка</b>.\n\nТакже вы можете скачать <b>PDF файл с собранными вопросами и заданиями с разных собеседований по SQL</b>, нажав <b>кнопку 📙 Кейсы</b>\n\nЛибо вы можете воспользоваться кнопкой Разделы и поискать информацию там.",
+        parse_mode="HTML",
+        reply_markup=keyboard_main,
+    )
+
+
+@dp.message_handler(Text(equals="🤓 Полезная информация"))
+async def tarifs(message: types.Message):
+    await message.answer(
+        "<b>Полезные ссылки:</b>\nШкола менеджмента Яндекс - Аналитика(и далее полный курс)\nhttps://www.youtube.com/watch?v=LGwy0QmMvOE \nОбщий курс - Научное мышление\nhttps://stepik.org/course/578/promo",
         parse_mode="HTML",
         reply_markup=keyboard_main,
     )
