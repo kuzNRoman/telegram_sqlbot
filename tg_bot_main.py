@@ -16,9 +16,9 @@ imp_info_button = types.KeyboardButton("🤓 Полезная информаци
 cheatsheet_button = types.KeyboardButton("📗 Шпаргалка")
 cases_button = types.KeyboardButton("📙 Кейсы")
 keyboard_main = types.ReplyKeyboardMarkup(resize_keyboard=True)
-keyboard_main.add(imp_info_button)
 keyboard_main.add(cheatsheet_button)
 keyboard_main.add(cases_button)
+keyboard_main.add(imp_info_button)
 
 # keyboard_info_imp
 courses_button = types.KeyboardButton("🖥 Видео-уроки и курсы")
