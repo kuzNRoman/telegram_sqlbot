@@ -15,6 +15,7 @@ dp = Dispatcher(bot)
 imp_info_button = types.KeyboardButton("🤓 Полезная информация")
 cheatsheet_button = types.KeyboardButton("📗 Шпаргалка")
 cases_button = types.KeyboardButton("📙 Кейсы")
+cases_button = types.KeyboardButton("🛠 GitHub проекта")
 keyboard_main = types.ReplyKeyboardMarkup(resize_keyboard=True)
 keyboard_main.add(cheatsheet_button)
 keyboard_main.add(cases_button)
@@ -67,6 +68,15 @@ async def tarifs(message: types.Message):
 async def tarifs(message: types.Message):
     await message.answer(
         "Данный раздел содержит полезные ссылки на уроки и курсы (платные и бесплатные), ссылки на тренажеры по sql и многое другое!",
+        parse_mode="HTML",
+        reply_markup=keyboard_info_imp,
+    )
+
+
+@dp.message_handler(Text(equals="🛠 GitHub проекта"))
+async def tarifs(message: types.Message):
+    await message.answer(
+        "<a href='https://github.com/kuzNRoman/telegram_sqlbot'>GitHub</a>",
         parse_mode="HTML",
         reply_markup=keyboard_info_imp,
     )
