@@ -79,7 +79,7 @@ async def tarifs(message: types.Message):
     await message.answer(
         "<a href='https://github.com/kuzNRoman/telegram_sqlbot'>GitHub Проекта</a>",
         parse_mode="HTML",
-        reply_markup=keyboard_info_imp,
+        reply_markup=keyboard_main,
     )
 
 
