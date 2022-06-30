@@ -75,7 +75,16 @@ async def tarifs(message: types.Message):
 @dp.message_handler(Text(equals="🖥 Видео-уроки и курсы"))
 async def tarifs(message: types.Message):
     await message.answer(
-        "<b>Полезные уроки и курсы:</b>\nШкола менеджмента Яндекс\nhttps://www.youtube.com/watch?v=LGwy0QmMvOE\nКурс Stepik - Научное мышление\nhttps://stepik.org/course/578/promo",
+        "<b>Полезные уроки и курсы:</b>\n<a href='https://www.youtube.com/watch?v=LGwy0QmMvOE'>Школа менеджмента Яндекс</a>\n\n<a href='https://stepik.org/course/578/promo'>Курс Stepik - Научное мышление</a>\n\n<a href='https://www.youtube.com/watch?v=vLUmFnOBFmY'>Unit-экономика</a>",
+        parse_mode="HTML",
+        reply_markup=keyboard_info_imp,
+    )
+
+
+@dp.message_handler(Text(equals="💻 Тренажеры SQL"))
+async def tarifs(message: types.Message):
+    await message.answer(
+        "<a href='https://www.stratascratch.com/'>Сборник задач StrataScratch</a>\n\n<a href='https://www.sql-ex.ru/'>Практические задания по SQL</a>",
         parse_mode="HTML",
         reply_markup=keyboard_info_imp,
     )
